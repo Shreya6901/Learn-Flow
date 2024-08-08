@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        width: 280px;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .header h2 {
+        margin: 0 0 5px 0;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .header p {
+        margin: 0;
+        font-size: 12px;
+        opacity: 0.8;
+      }
+
+      .status {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .status-indicator {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 10px;
+      }
+
+      .status-text {
+        font-weight: 500;
+      }
+
+      .status-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: #ff4444;
+      }
+
+      .status-dot.active {
+        background: #44ff44;
+      }
+
+      .toggle-btn {
+        width: 100%;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .toggle-btn:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-1px);
+      }
+
+      .toggle-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .instructions {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .instructions h4 {
+        margin: 0 0 10px 0;
+        font-size: 14px;
+      }
+
+      .instructions ul {
+        margin: 0;
+        padding-left: 20px;
+        font-size: 12px;
+        line-height: 1.4;
+      }
+
+      .instructions li {
+        margin-bottom: 5px;
+      }
+
+      .warning {
+        background: rgba(255, 193, 7, 0.2);
+        border: 1px solid rgba(255, 193, 7, 0.5);
+        padding: 10px;
+        border-radius: 6px;
+        margin-top: 10px;
+        font-size: 12px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h2>🎯 Focus Mode</h2>
+      <p>Distraction-free playlist learning</p>
+    </div>
+
+    <div class="status">
+      <div class="status-indicator">
+        <span class="status-text">Status</span>
+        <div class="status-dot" id="status-dot"></div>
+      </div>
+      <div id="status-message">Focus mode inactive</div>
+    </div>
+
+    <button class="toggle-btn" id="toggle-focus">Enable Focus Mode</button>
+
+    <div class="instructions">
+      <h4>📚 How to use:</h4>
+      <ul>
+        <li>Navigate to any YouTube playlist</li>
+        <li>Click "Enable Focus Mode" or use the red button</li>
+        <li>Enjoy distraction-free learning!</li>
+        <li>Take notes for each video</li>
+        <li>Track your progress automatically</li>
+      </ul>
+    </div>
+
+    <div class="warning" id="playlist-warning" style="display: none">
+      ⚠️ Please visit a YouTube playlist to use Focus Mode
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
